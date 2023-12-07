@@ -7,28 +7,31 @@ def analyze_petrol_data():
         total_cost = 0
         under_3_5_liters = 0
 
-        # Read the data from the file and process each line
+        # Reading the data from the file and process each line
         with open(file_path, 'r') as file:
             # Skip the header line
             next(file)
 
             for line in file:
-                # Split the line into columns
+                # Spliting the line into columns
                 columns = line.strip().split('\t')
 
-                # Extract liters and cost from the columns
+                # Extracting liters and cost from the columns
                 liters, cost = float(columns[0]), float(columns[1])
 
-                # Accumulate totals
+                # to add totals
                 total_liters += liters
                 total_cost += cost
 
-                # Check if the cost per liter is under 3.5AED
+                # Checking if the cost per liter is under 3.5AED
                 if liters > 0 and cost / liters < 3.5:
                     under_3_5_liters += liters
 
-        # Calculate average cost per liter
-        average_cost_per_liter = total_cost / total_liters if total_liters > 0 else 0
+        # Calculating average cost per liter
+        if total_liters > 0:
+            average_cost_per_liter = total_cost / total_liters
+        else:
+            average_cost_per_liter = 0
 
         # Display statistics
         result_text = f"Statistics:\nTotal Liters: {total_liters}\nTotal Cost: {total_cost}\n"
@@ -41,6 +44,8 @@ def analyze_petrol_data():
 
 # Creating the main window
 root = Tk()
+
+# Creating a title of page
 root.title("Petrol Data Analyzer")
 
 # Label for displaying the result
@@ -51,5 +56,5 @@ result_label.pack(pady=10)
 analyze_button = Button(root, text="Analyze Petrol Data", command=analyze_petrol_data)
 analyze_button.pack(pady=10)
 
-# Run the main event loop
+# Running the main event loop
 root.mainloop()

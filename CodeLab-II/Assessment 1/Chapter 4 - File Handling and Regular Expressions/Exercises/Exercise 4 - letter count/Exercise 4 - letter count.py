@@ -23,7 +23,12 @@ def submit_form():
 
 # Creating the main window
 root = Tk()
+
+# Setting the window size 
 root.title("Letter Occurrences Counter")
+
+# Setting the window size 
+root.geometry("400x200")
 
 # Label and Entry for user input
 label_prompt = Label(root, text="Enter a character:")

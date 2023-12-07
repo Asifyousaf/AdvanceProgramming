@@ -22,7 +22,7 @@ root = Tk()
 root.title("Greeting App")
 
 # Setting the window size 
-root.geometry("300x300")
+root.geometry("300x200")
 
 # Disabling window resizable
 root.resizable(0, 0)
@@ -67,7 +67,7 @@ display_frame = Frame(root, bg='white', width=300, height=150)
 display_frame.pack(padx=10, pady=10, fill="both", expand=True)
 
 # Label to display personalized greeting
-display_label = Label(display_frame, text="", font=('Helvetica', 16), bg='white', fg='black')  
+display_label = Label(display_frame, text="", font=('Helvetica', 16), bg='Grey', fg='black')  
 display_label.pack(padx=5, pady=5)
 
 # Starting the Tkinter event loop
