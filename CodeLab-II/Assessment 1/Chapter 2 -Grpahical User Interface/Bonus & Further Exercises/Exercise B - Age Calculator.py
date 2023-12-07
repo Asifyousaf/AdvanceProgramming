@@ -28,6 +28,8 @@ def calculate_age():
 
 # Creating the main window
 root = Tk()
+
+# Setting the title for the window
 root.title("Age Calculator")
 
 # Adding a blue background to the main window
@@ -72,3 +74,5 @@ result_label.grid(row=4, column=0, columnspan=4, padx=10, pady=10)
 
 # Start the Tkinter event loop
 root.mainloop()
+
+#End marker

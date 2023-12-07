@@ -1,3 +1,4 @@
+# using the tkinter library
 from tkinter import *
 
 def count():
@@ -24,6 +25,8 @@ def count():
 
 # Creating the main window
 root = Tk()
+
+# Setting the title for the window
 root.title("Character Counter")
 
 # Adding a white background to the main window
@@ -50,3 +53,5 @@ result_label.grid(row=3, column=0, columnspan=2, pady=10, padx=10)
 
 # Start the Tkinter event loop
 root.mainloop()
+
+#End marker

@@ -24,6 +24,8 @@ def fahrenheit_to_celsius():
 
 # Creating the main window
 root = Tk()
+
+# Setting the title for the window
 root.title("Temperature Converter")
 
 # Adding a white background to the main window

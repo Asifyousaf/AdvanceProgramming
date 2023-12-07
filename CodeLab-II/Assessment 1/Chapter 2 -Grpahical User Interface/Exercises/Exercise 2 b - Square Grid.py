@@ -3,6 +3,8 @@ from tkinter import *
 
 # Create the main window
 root = Tk()
+
+# Setting the title of the window
 root.title("Labels Inside Frames")
 
 # Creating left frame and displaying it with pack
