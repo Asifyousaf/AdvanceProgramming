@@ -13,7 +13,7 @@ root = Tk()
 root.title("Simple Vending Machine")
 
 # Setting the window size
-root.geometry("300x200")
+root.geometry("300x300")
 
 # Variables
 selected_item = StringVar()
