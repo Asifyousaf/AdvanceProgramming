@@ -1,109 +1,223 @@
-def display_menu():
-    print("Welcome to Burger Shack!")
-    print("1. Beef Burger")
-    print("2. Chicken Burger")
-    print("3. Vegetarian Burger")
+import time
+# Burger Shack
+print(" **WELCOME TO BURGER SHACK** ")
 
-def choose_burger():
-    burger_type = input("Choose a burger (1-3): ")
-    while burger_type not in ["1", "2", "3"]:
-        print("Invalid choice. Please choose a valid option.")
-        burger_type = input("Choose a burger (1-3): ")
-    return int(burger_type)
+# Define the prices of each burger
+Beef_Burger = 10.00
+Chicken_Burger = 8.00
+Vegetarian_Burger = 6.50
 
-def choose_toppings():
-    toppings = []
-    print("\nChoose toppings (comma-separated):")
-    print("1. Cheese")
-    print("2. Peanut Butter")
-    print("3. Avocado")
-    
-    selected_toppings = input("Enter topping numbers: ")
-    topping_choices = selected_toppings.split(",")
-    for choice in topping_choices:
-        if choice == "1":
-            toppings.append("Cheese")
-        elif choice == "2":
-            toppings.append("Peanut Butter")
-        elif choice == "3":
-            toppings.append("Avocado")
-    return toppings
+time.sleep(1)
+print("\nThere are 3 delicious burgers to choose from:\n")
+time.sleep(2)
 
-def choose_condiments():
-    condiments = []
-    print("\nChoose condiments (comma-separated):")
-    print("1. Ketchup")
-    print("2. Mayonnaise")
-    print("3. BBQ Sauce")
-    
-    selected_condiments = input("Enter condiment numbers: ")
-    condiment_choices = selected_condiments.split(",")
-    for choice in condiment_choices:
-        if choice == "1":
-            condiments.append("Ketchup")
-        elif choice == "2":
-            condiments.append("Mayonnaise")
-        elif choice == "3":
-            condiments.append("BBQ Sauce")
-    return condiments
+# Displaying various options and the pricing for each burger to the user.
+print(" Burger                    Costs\n"
+" ------                    ------\n"
+" 1. Beef Burger            10.00 Dhs\n "
+" 2. Chicken Burger          8.00 Dhs\n "
+" 3. Vegetarian Burger       6.50 Dhs\n "
+"-------------------------------------\n"
+)
 
-def choose_sides():
-    print("\nChoose sides:")
-    print("1. Fries")
-    print("2. Drink")
-    
-    selected_sides = input("Enter side numbers: ")
-    sides = []
-    side_choices = selected_sides.split(",")
-    for choice in side_choices:
-        if choice == "1":
-            sides.append("Fries")
-        elif choice == "2":
-            sides.append("Drink")
-    return sides
+time.sleep(1)
 
-def calculate_total(items):
-    prices = {"Beef Burger": 5.00, "Chicken Burger": 4.50, "Vegetarian Burger": 4.00,
-              "Cheese": 0.50, "Peanut Butter": 0.75, "Avocado": 1.00,
-              "Ketchup": 0.25, "Mayonnaise": 0.30, "BBQ Sauce": 0.50,
-              "Fries": 2.00, "Drink": 1.50}
+while True:
+    try:
+        # Get the user's input
+        money = int(input("Please Enter The Amount of Money: "))
+        break
+    except ValueError:
+        # Display an error message if the input is not a valid integer
+        print("Sorry, that is not a valid amount. Please enter a whole number (e.g. 10, 100, 1000).")
 
-    total = sum(prices[item] for item in items)
-    return total
+# Printing line to separate
+print("-" * 40)
+time.sleep(1)
+print("The amount of money you have entered is: " + str(money) + " Dhs")
+print("-" * 40)
+time.sleep(1)
 
-def handle_payment(total):
-    print(f"\nYour total is ${total:.2f}")
-    payment = float(input("Enter payment amount: $"))
-    while payment < total:
-        print("Insufficient payment. Please enter a valid amount.")
-        payment = float(input("Enter payment amount: $"))
+# To store the items selected by the user
+transactions = []
 
-    change = payment - total
-    print(f"Thank you for your payment! Your change is ${change:.2f}")
+# Function to store the transaction history
+def vend(item, price, quantity, total_cost):
+    # Calculate the total cost of the purchase
+    total_cost = price * quantity
+    # Add the transaction to the history
+    transactions.append((item, price, quantity, total_cost))
 
-if __name__ == "__main__":
-    order_items = []
+def get_transaction_history():
+    # Returning the transaction history
+    return transactions
 
-    display_menu()
 
-    burger_choice = choose_burger()
-    order_items.append(["Beef Burger", "Chicken Burger", "Vegetarian Burger"][burger_choice - 1])
+# Loop until the user has no more money or chooses to exit
+while money > 0:
+    while True:
+        try:
+            burger_choice = int(input("\nPlease enter your choice (Once you are finish type 0 to Quit): "))
+            if burger_choice in [0, 1, 2, 3]:
+                break
+            else:
+                print("Sorry, that is not a valid option. Please select a number between 1 and 3.")
+        except ValueError:
+            print("Sorry, that is not a valid option. Please enter a number between 1 and 3.")
 
-    toppings = choose_toppings()
-    order_items.extend(toppings)
+    # Check which burger the user has chosen
+    if burger_choice == 0:
+        break
+    elif burger_choice == 1:
+        burger_type = "Beef Burger"
+        burger_price = Beef_Burger
+    elif burger_choice == 2:
+        burger_type = "Chicken Burger"
+        burger_price = Chicken_Burger
+    elif burger_choice == 3:
+        burger_type = "Vegetarian Burger"
+        burger_price = Vegetarian_Burger
 
-    condiments = choose_condiments()
-    order_items.extend(condiments)
+    # Check if the user has enough money for the chosen burger
+    if money < burger_price:
+        print(f"Insufficient funds to purchase {burger_type}")
+    else:
+        time.sleep(1)
+        print(f"\nYou have selected {burger_type}")
+        # Loop until the user enters a valid quantity
+        while True:
+            try:
+                # Prompt the user to specify the quantity of burgers they want
+                quantity = int(input(f"How many {burger_type}s would you like to purchase? "))
+                total_cost = burger_price * quantity
 
-    sides = choose_sides()
-    order_items.extend(sides)
+                # Check if the total cost of the purchase is greater than the user's balance
+                if total_cost > money:
+                    print("You do not have enough money to make this purchase. Please enter a lower quantity.")
+                else:
+                    # Calculate the total cost of the purchase
+                    money = money - total_cost
+                    # Add the purchase to the transaction history
+                    vend(burger_type, burger_price, quantity, total_cost)
+                    print(
+                        f"Thank you for your purchase! Your remaining balance is: {money} Dhs"
+                    )
+                    # Printing line to separate
+                    print("-" * 40)
+                    # Break out of the loop
+                    break
+            except ValueError:
+                print("Sorry, that is not a valid option. Please enter a number.")
 
-    total_price = calculate_total(order_items)
+        # Offer additional items to add to the purchase
+        print("\nWould you like to customize your burger with toppings and condiments?")
+        print("1. Add Toppings")
+        print("2. Add Condiments")
+        print("3. Skip customization")
 
-    handle_payment(total_price)
+        while True:
+            try:
+                customization_choice = int(input("Enter your choice (1-3): "))
+                if customization_choice in [1, 2, 3]:
+                    break
+                else:
+                    print("Invalid choice. Please select a valid option.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
-    print("\nYour order:")
-    for item in order_items:
-        print(f"- {item}")
+        if customization_choice == 1:
+            # Adding toppings
+            print("\nAvailable Toppings:")
+            print("1. Cheese (1.50 Dhs)")
+            print("2. Peanut Butter (1.00 Dhs)")
+            print("3. Avocado (2.00 Dhs)")
 
-    print(f"\nTotal: ${total_price:.2f}")
+            while True:
+                try:
+                    topping_choice = int(input("Select a topping (1-3): "))
+                    if 1 <= topping_choice <= 3:
+                        toppings = ["Cheese", "Peanut Butter", "Avocado"]
+                        selected_topping = toppings[topping_choice - 1]
+                        topping_price = {"Cheese": 1.50, "Peanut Butter": 1.00, "Avocado": 2.00}[selected_topping]
+                        
+                        # Adding the selected topping to the burger
+                        money -= topping_price
+                        print(f"{selected_topping} added to your burger. Remaining balance: {money} Dhs")
+                        vend(selected_topping, topping_price, 1, topping_price)
+                        
+                        break
+                    else:
+                        print("Invalid choice. Please select a valid option.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+
+        elif customization_choice == 2:
+            # Adding condiments
+            print("\nAvailable Condiments:")
+            print("1. Ketchup (0.50 Dhs)")
+            print("2. Mayonnaise (0.75 Dhs)")
+            print("3. BBQ Sauce (1.00 Dhs)")
+
+            while True:
+                try:
+                    condiment_choice = int(input("Select a condiment (1-3): "))
+                    if 1 <= condiment_choice <= 3:
+                        condiments = ["Ketchup", "Mayonnaise", "BBQ Sauce"]
+                        selected_condiment = condiments[condiment_choice - 1]
+                        condiment_price = {"Ketchup": 0.50, "Mayonnaise": 0.75, "BBQ Sauce": 1.00}[selected_condiment]
+                        
+                        # Adding the selected condiment to the burger
+                        money -= condiment_price
+                        print(f"{selected_condiment} added to your burger. Remaining balance: {money} Dhs")
+                        vend(selected_condiment, condiment_price, 1, condiment_price)
+                        
+                        break
+                    else:
+                        print("Invalid choice. Please select a valid option.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+
+        # Adding sides
+        print("\nAvailable Sides:")
+        print("1. Fries (3.00 Dhs)")
+        print("2. Drink (2.50 Dhs)")
+
+        while True:
+            try:
+                side_choice = int(input("Select a side (1-2): "))
+                if 1 <= side_choice <= 2:
+                    sides = ["Fries", "Drink"]
+                    selected_side = sides[side_choice - 1]
+                    side_price = {"Fries": 3.00, "Drink": 2.50}[selected_side]
+                    
+                    # Adding the selected side to the order
+                    money -= side_price
+                    print(f"{selected_side} added to your order. Remaining balance: {money} Dhs")
+                    vend(selected_side, side_price, 1, side_price)
+                    
+                    break
+                else:
+                    print("Invalid choice. Please select a valid option.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+    time.sleep(1)
+    # Ask the user if they want to make an additional selection
+    additional_selection = input('Would you like to make another purchase? (y/n): ')
+    if additional_selection.lower() == 'no' or additional_selection.lower() == 'n':
+        break
+    else:
+      continue
+
+# Display the transaction history and total
+print("\n-----\033[92mTransaction History\033[0m-----")
+history = get_transaction_history()
+total = 0
+
+for item, price, quantity, total_cost in history:
+    total += total_cost
+    print(f"\n{item}: {price} Dhs x {quantity} = {total_cost} Dhs")
+
+print(f"\nTotal: {total} Dhs ")
+print(f"\nRemaining balance: {money} Dhs")
+print("\nEnjoy your meal at Burger Shack!")

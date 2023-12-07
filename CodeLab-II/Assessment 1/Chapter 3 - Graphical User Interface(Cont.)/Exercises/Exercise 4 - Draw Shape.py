@@ -11,7 +11,7 @@ def draw_shape():
     if shape == "Oval":
         canvas.create_oval(50, 50, 350, 350, outline="black")
     elif shape == "Rectangle":
-        canvas.create_rectangle(50, 50, 250, 350, outline="black")  # Different dimensions for rectangle
+        canvas.create_rectangle(50, 50, 250, 350, outline="black")  
     elif shape == "Square":
         canvas.create_rectangle(50, 50, 150, 50, outline="black")
     elif shape == "Triangle":
@@ -53,3 +53,4 @@ draw_button.pack(pady=10)
 
 # Starting the Tkinter event loop
 root.mainloop()
+# End marker
