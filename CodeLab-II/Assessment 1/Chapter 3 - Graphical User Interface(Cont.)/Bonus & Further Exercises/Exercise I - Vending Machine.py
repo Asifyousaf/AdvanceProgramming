@@ -1,3 +1,4 @@
+# using the tkinter libraryand messagebox
 from tkinter import *
 from tkinter import messagebox
 
@@ -6,7 +7,38 @@ items = ["Snickers Bar", "Sun Chips", "Cold Coffee"]
 prices = {"Snickers Bar": 2.00, "Sun Chips": 3.00, "Cold Coffee": 2.50}
 stock = {"Snickers Bar": 10, "Sun Chips": 5, "Cold Coffee": 8}
 
-# Create the main window
+def process_purchase():
+    # Getting user input: selected item, quantity, and amount paid
+    item = selected_item.get()
+    quantity = int(quantity_var.get())
+    amount_paid = amount_paid_var.get()
+
+    # Calculates the total cost
+    if item in prices:
+        price = prices[item]
+        current_stock = stock[item]
+    else:
+        # Show an error message for invalid item selection
+        messagebox.showerror("Invalid Item", "Please select a valid item.")
+        return
+
+    total_cost = price * quantity
+
+    # Checking if there is enough stock
+    if quantity > current_stock:
+        messagebox.showerror("Out of Stock", f"We're out of stock for {item}. Please enter a lower quantity.")
+        return
+
+    # Checking if the amount paid is sufficient
+    if amount_paid >= total_cost:
+        remaining_stock = current_stock - quantity
+        messagebox.showinfo("Purchase Successful", f"Thank you for your purchase!\nTotal Cost: {total_cost:.2f}\nRemaining Stock: {remaining_stock}")
+        # Updating the stock
+        stock[item] = remaining_stock
+    else:
+        messagebox.showerror("Insufficient Funds", "You have not paid enough for your purchase.")
+
+# Creating the main window
 root = Tk()
 
 # Setting the title for the window
@@ -17,9 +49,11 @@ root.geometry("300x300")
 
 # Variables
 selected_item = StringVar()
-selected_item.set(items[0])  # Default selection
+
+# Default selection
+selected_item.set(items[0])  
 quantity_var = StringVar()
-amount_paid_var = DoubleVar()
+amount_paid_var = DoubleVar(value='')
 
 # Labels
 welcome_label = Label(root, text="Vending Machine", font=("Roboto", 16, "bold"))
@@ -47,37 +81,10 @@ amount_paid_entry = Entry(root, textvariable=amount_paid_var)
 amount_paid_entry.pack()
 
 # Button to process the purchase
-def process_purchase():
-    item = selected_item.get()
-    quantity = int(quantity_var.get())
-    amount_paid = amount_paid_var.get()
-
-    # Calculate the total cost
-    if item in prices:
-        price = prices[item]
-        current_stock = stock[item]
-    else:
-        messagebox.showerror("Invalid Item", "Please select a valid item.")
-        return
-
-    total_cost = price * quantity
-
-    # Check if there is enough stock
-    if quantity > current_stock:
-        messagebox.showerror("Out of Stock", f"We're out of stock for {item}. Please enter a lower quantity.")
-        return
-
-    # Check if the amount paid is sufficient
-    if amount_paid >= total_cost:
-        remaining_stock = current_stock - quantity
-        messagebox.showinfo("Purchase Successful", f"Thank you for your purchase!\nTotal Cost: {total_cost:.2f}\nRemaining Stock: {remaining_stock}")
-        # Update the stock
-        stock[item] = remaining_stock
-    else:
-        messagebox.showerror("Insufficient Funds", "You have not paid enough for your purchase.")
-
 purchase_button = Button(root, text="Purchase", command=process_purchase, bg="#5d432c", fg="white", font=("Roboto", 12, 'bold'))
 purchase_button.pack(pady=10)
 
 # Starting the Tkinter event loop
 root.mainloop()
+
+#End marker

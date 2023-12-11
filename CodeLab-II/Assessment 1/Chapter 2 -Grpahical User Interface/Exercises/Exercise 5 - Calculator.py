@@ -1,93 +1,121 @@
-import tkinter as tk
-from tkinter import messagebox
+# using the tkinter library
+from tkinter import *
 
-# Create main window
-root = tk.Tk()
-root.title("Coffee Vending Machine")
-root.geometry("400x450")
-root.configure(bg="#f0f0f0")  # Set background color
+# Function to perform addition
+def add():
+    num1 = entry_num1.get()
+    num2 = entry_num2.get()
 
-# Function to handle user input
-def process_order():
-    coffee_type = coffee_var.get()
-    sugar = int(sugar_var.get())
-    milk = int(milk_var.get())
-
-    try:
-        amount_paid = float(amount_paid_entry.get())
-    except ValueError:
-        messagebox.showerror("Invalid Amount", "Please enter a valid amount.")
-        return
-
-    # Assume cost of coffee is $2, with an additional $0.50 for each sugar and milk
-    cost = 2 + (sugar * 0.5) + (milk * 0.5)
-
-    if amount_paid >= cost:
-        change = amount_paid - cost
-        order_message = f"You ordered a {coffee_type} coffee with {sugar} sugar and {milk} milk. The cost is ${cost:.2f} and your change is ${change:.2f}."
-        messagebox.showinfo("Order Received", order_message)
+    # Checking if both inputs are valid numbers
+    if num1.isdigit() and num2.isdigit():
+        result = float(num1) + float(num2)
+        result_label.config(text=f"Result: {result}")
     else:
-        messagebox.showerror("Insufficient Funds", "You have not paid enough for your order.")
+        result_label.config(text="Invalid input")
 
-# Variables to store user inputs
-coffee_var = tk.StringVar()
-sugar_var = tk.StringVar()
-milk_var = tk.StringVar()
+# Function to perform subtraction
+def subtract():
+    num1 = entry_num1.get()
+    num2 = entry_num2.get()
 
-# Create a drop-down menu for coffee type
-coffee_label = tk.Label(root, text="Coffee Type:", bg="#f0f0f0")
-coffee_label.pack(pady=5)
-coffee_option = tk.OptionMenu(root, coffee_var, "Regular", "Americano", "Latte")
-coffee_option.pack(pady=5)
+    # Checking if both inputs are valid numbers
+    if num1.isdigit() and num2.isdigit():
+        result = float(num1) - float(num2)
+        result_label.config(text=f"Result: {result}")
+    else:
+        result_label.config(text="Invalid input")
 
-# Create radio buttons for sugar and milk options
-sugar_label = tk.Label(root, text="Sugar:", bg="#f0f0f0")
-sugar_label.pack(pady=5)
-sugar_1 = tk.Radiobutton(root, text="1", variable=sugar_var, value="1", bg="#f0f0f0")
-sugar_1.pack(anchor='w')
-sugar_2 = tk.Radiobutton(root, text="2", variable=sugar_var, value="2", bg="#f0f0f0")
-sugar_2.pack(anchor='w')
-sugar_3 = tk.Radiobutton(root, text="3", variable=sugar_var, value="3", bg="#f0f0f0")
-sugar_3.pack(anchor='w')
+# Function to perform multiplication
+def multiply():
+    num1 = entry_num1.get()
+    num2 = entry_num2.get()
 
-milk_label = tk.Label(root, text="Milk:", bg="#f0f0f0")
-milk_label.pack(pady=5)
-milk_1 = tk.Radiobutton(root, text="1", variable=milk_var, value="1", bg="#f0f0f0")
-milk_1.pack(anchor='w')
-milk_2 = tk.Radiobutton(root, text="2", variable=milk_var, value="2", bg="#f0f0f0")
-milk_2.pack(anchor='w')
-milk_3 = tk.Radiobutton(root, text="3", variable=milk_var, value="3", bg="#f0f0f0")
-milk_3.pack(anchor='w')
+    # Checking if both inputs are valid numbers
+    if num1.isdigit() and num2.isdigit():
+        result = float(num1) * float(num2)
+        result_label.config(text=f"Result: {result}")
+    else:
+        result_label.config(text="Invalid input")
 
-# Create an entry box for the amount paid
-amount_paid_label = tk.Label(root, text="Amount Paid:", bg="#f0f0f0")
-amount_paid_label.pack(pady=5)
-amount_paid_entry = tk.Entry(root)
-amount_paid_entry.pack(pady=5)
+# Function to perform division
+def divide():
+    num1 = entry_num1.get()
+    num2 = entry_num2.get()
 
-# Create a label to display the total cost
-total_cost_label = tk.Label(root, text="Total Cost: $0.00", bg="#f0f0f0", font=("Arial", 12, "bold"))
-total_cost_label.pack(pady=5)
+    # Check if both inputs are valid numbers
+    if num1.isdigit() and num2.isdigit():
+        # Checking if the divisor is not zero
+        if float(num2) != 0:
+            result = float(num1) / float(num2)
+            result_label.config(text=f"Result: {result}")
+        else:
+            result_label.config(text="Cannot divide by zero")
+    else:
+        result_label.config(text="Invalid input")
 
-# Create a button to process the order with some style
-order_button = tk.Button(root, text="Order", command=process_order, bg="#4CAF50", fg="white", padx=10, pady=5)
-order_button.pack(pady=20)
+# Function to perform modulo division
+def modulo():
+    num1 = entry_num1.get()
+    num2 = entry_num2.get()
 
-# Function to update the total cost dynamically
-def update_cost(*args):
-    coffee_type = coffee_var.get()
-    sugar = int(sugar_var.get())
-    milk = int(milk_var.get())
+    # Checking if both inputs are valid numbers
+    if num1.isdigit() and num2.isdigit():
+        # Checking if the divisor is not zero
+        if float(num2) != 0:
+            result = float(num1) % float(num2)
+            result_label.config(text=f"Result: {result}")
+        else:
+            result_label.config(text="Cannot calculate modulo with zero")
+    else:
+        result_label.config(text="Invalid input")
 
-    # Assume cost of coffee is $2, with an additional $0.50 for each sugar and milk
-    cost = 2 + (sugar * 0.5) + (milk * 0.5)
-    
-    total_cost_label.config(text=f"Total Cost: ${cost:.2f}")
 
-# Bind the update_cost function to changes in coffee type, sugar, and milk
-coffee_var.trace_add("write", update_cost)
-sugar_var.trace_add("write", update_cost)
-milk_var.trace_add("write", update_cost)
+# Creating the main window
+root = Tk()
 
-# Run the app
+# Setting the title for the window
+root.title("Simple Calculator")
+
+# Setting the size of the window
+root.geometry('320x320')
+
+# Disable resizing of the window
+root.resizable(0, 0)
+
+# Adding a white background to the main window
+root.configure(bg='white')
+
+head1 = Label(root, font=('Roboto', 10, 'bold'), text="Simple Calculator", fg='#22263d', bg="#f2f2f2")
+head1.grid(row=0, column=0, columnspan=2, pady=(10, 0))
+
+# Making Entry widgets for numbers
+entry_num1 = Entry(root, width=15, font=('Arial', 12), bg='#ADAEB7')
+entry_num1.grid(row=1, column=0, padx=10, pady=10)
+
+entry_num2 = Entry(root, width=15, font=('Arial', 12), bg='#ADAEB7')
+entry_num2.grid(row=1, column=1, padx=15, pady=10)
+
+# Making Buttons to perform operations
+add_button = Button(root, text="Add", command=add, bg='#22263d', fg='white', height=2, width=10)
+add_button.grid(row=2, column=0, padx=10, pady=10)
+
+subtract_button = Button(root, text="Subtract", command=subtract, bg='#22263d', fg='white', height=2, width=10)
+subtract_button.grid(row=2, column=1, padx=10, pady=10)
+
+multiply_button = Button(root, text="Multiply", command=multiply, bg='#22263d', fg='white', height=2, width=10)
+multiply_button.grid(row=3, column=0, padx=10, pady=10)
+
+divide_button = Button(root, text="Divide", command=divide, bg='#22263d', fg='white', height=2, width=10)
+divide_button.grid(row=3, column=1, padx=10, pady=10)
+
+modulo_button = Button(root, text="Modulo", command=modulo, bg='#22263d', fg='white', height=2, width=20)
+modulo_button.grid(row=4, column=0, columnspan=2, pady=20)
+
+# Making Label to display the result
+result_label = Label(root, text="Result: ", font=('Arial', 14))
+result_label.grid(row=5, column=0, columnspan=2, pady=10)
+
+# Start the main loop
 root.mainloop()
+
+# End marker

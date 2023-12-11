@@ -5,7 +5,7 @@ from tkinter import *
 def count_occurrences(character, file_path):
     try:
         # Opening and reading the specified file
-        with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 4 - letter count/sentences.txt', 'r') as file:
+        with open('sentences.txt', 'r') as file:
             content = file.read()
             # Counting occurrences of the character (case-insensitive)
             count = content.lower().count(character.lower())

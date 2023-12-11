@@ -72,3 +72,5 @@ display_label.pack(padx=5, pady=5)
 
 # Starting the Tkinter event loop
 root.mainloop()
+
+# End marker

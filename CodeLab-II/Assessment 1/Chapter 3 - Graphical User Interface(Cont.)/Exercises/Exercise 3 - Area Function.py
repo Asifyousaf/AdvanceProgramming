@@ -1,5 +1,6 @@
+# using the tkinter library and messagebox
 from tkinter import *
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox # tkk for notebook
 
 # Function to calculate the area of a circle
 def calculate_circle_area():
@@ -124,7 +125,9 @@ rectangle_result_label = Label(rectangle_tab, text='Area:', font=("Helvetica", 1
 rectangle_result_label.pack()
 
 # Pack for the notebook
-notebook.pack()
+notebook.pack(fill=BOTH, expand=YES)
 
 # Starting the Tkinter event loop
 root.mainloop()
+
+# End marker

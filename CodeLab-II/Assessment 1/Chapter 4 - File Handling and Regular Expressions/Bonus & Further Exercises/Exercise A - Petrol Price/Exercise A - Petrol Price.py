@@ -1,8 +1,9 @@
+# using the tkinter library
 from tkinter import *
 
 def analyze_petrol_data():
     try:
-        file_path = 'Chapter 4 - File Handling and Regular Expressions/Bonus & Further Exercises/Exercise A - Petrol Price/petrolPrice.txt'
+        file_path = 'petrolPrice.txt'
         total_liters = 0
         total_cost = 0
         under_3_5_liters = 0
@@ -48,12 +49,15 @@ root = Tk()
 # Creating a title of page
 root.title("Petrol Data Analyzer")
 
+# Setting the window size
+root.geometry('300x150')
+
 # Label for displaying the result
 result_label = Label(root, text="")
 result_label.pack(pady=10)
 
-# Button to analyze the petrol data
-analyze_button = Button(root, text="Analyze Petrol Data", command=analyze_petrol_data)
+# Button to analyze the petrol data with a blue color
+analyze_button = Button(root, text="Analyze Petrol Data", command=analyze_petrol_data, bg="blue", fg="white")
 analyze_button.pack(pady=10)
 
 # Running the main event loop

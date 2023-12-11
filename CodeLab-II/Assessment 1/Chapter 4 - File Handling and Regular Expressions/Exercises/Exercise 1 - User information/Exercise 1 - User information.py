@@ -1,10 +1,10 @@
 # using the tkinter library
 from tkinter import *
 
-# Makign fucntion to read & write data
+# Making fucntion to read & write data
 def save_to_file(name, age, hometown):
     # Saving user information to the bio.txt file
-    with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 1 - User information/bio.txt', 'w') as file:
+    with open('bio.txt', 'w') as file:
         file.write(f"Name: {name}\n")
         file.write(f"Age: {age}\n")
         file.write(f"Hometown: {hometown}\n")
@@ -24,10 +24,10 @@ def submit_form():
     age = entry_age.get()
     hometown = entry_hometown.get()
 
-    # Save user information to the file
+    # Saving user information to the file
     save_to_file(name, age, hometown)
 
-    # Display the content in a label
+    # Displaying the content in a label
     result_label.config(text=read_from_file())
 
 # Creating the main window

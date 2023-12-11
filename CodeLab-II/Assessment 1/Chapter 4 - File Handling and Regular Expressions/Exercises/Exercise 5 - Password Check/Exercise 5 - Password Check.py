@@ -82,4 +82,4 @@ attempts_display.pack()
 # Run the main event loop
 root.mainloop()
 
-# end marker
+# End marker

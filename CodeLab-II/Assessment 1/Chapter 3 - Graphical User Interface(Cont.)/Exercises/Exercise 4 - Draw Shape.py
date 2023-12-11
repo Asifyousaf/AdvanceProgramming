@@ -7,7 +7,7 @@ def draw_shape():
     shape = shape_var.get()
     # used to clear the canvas before drawing a new shape
     canvas.delete("all")
-    # Draw the selected shape on the canvas
+    # Drawing the selected shape on the canvas
     if shape == "Oval":
         canvas.create_oval(50, 50, 350, 350, outline="black")
     elif shape == "Rectangle":
@@ -53,4 +53,5 @@ draw_button.pack(pady=10)
 
 # Starting the Tkinter event loop
 root.mainloop()
+
 # End marker

@@ -8,7 +8,7 @@ def count_string_occurrences(search_string, file_path):
     # file_path (str): The path to the file containing the text.
     try:
         # to open and read the specified file
-        with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 2 - CountString/sentences.txt', 'r') as file:
+        with open('sentences.txt', 'r') as file:
             content = file.read()
             
             # Counting occurrences of the search string
@@ -45,7 +45,7 @@ def submit_form():
 root = Tk()
 
 # Setting the window size
-root.geometry("350x200")
+root.geometry("360x200")
 
 # Setting the title for the window
 root.title("String Occurrences Counter")
@@ -55,7 +55,7 @@ submit_button = Button(root, text="Find String Occurrences", command=submit_form
 submit_button.pack(pady=10)
 
 # Label to display the result
-result_label = Label(root, text="")
+result_label = Label(root, text="",font=("Arial", 9, "bold"))
 result_label.pack(pady=10)
 
 # Run the main event loop

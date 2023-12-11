@@ -1,0 +1,20 @@
+{
+    "StudentDetails": {
+        "Name": "Asif",
+        "ID": 2022469,
+        "course": "LL C5",
+        "CourseDetails": {
+            "Group": "A",
+            "Year": 2
+        }
+    },
+    "SecondStudentDetails": {
+        "Name": "Ahmed",
+        "ID": 202323,
+        "course": "LL C5",
+        "CourseDetails": {
+            "Group": "A",
+            "Year": 2
+        }
+    }
+}

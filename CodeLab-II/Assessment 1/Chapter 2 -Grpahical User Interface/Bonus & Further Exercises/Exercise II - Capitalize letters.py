@@ -42,3 +42,5 @@ result_label.grid(row=3, column=0, columnspan=2, pady=10, padx=10)
 
 # Start the Tkinter event loop
 root.mainloop()
+
+#End marker

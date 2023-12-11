@@ -1,8 +1,10 @@
+# using the time module
 import time
+
 # Burger Shack
 print(" **WELCOME TO BURGER SHACK** ")
 
-# Define the prices of each burger
+# Defining the prices of each burger
 Beef_Burger = 10.00
 Chicken_Burger = 8.00
 Vegetarian_Burger = 6.50
@@ -24,11 +26,11 @@ time.sleep(1)
 
 while True:
     try:
-        # Get the user's input
+        # Getting the user's input
         money = int(input("Please Enter The Amount of Money: "))
         break
     except ValueError:
-        # Display an error message if the input is not a valid integer
+        # Displaying an error message if the input is not a valid integer
         print("Sorry, that is not a valid amount. Please enter a whole number (e.g. 10, 100, 1000).")
 
 # Printing line to separate
@@ -45,7 +47,7 @@ transactions = []
 def vend(item, price, quantity, total_cost):
     # Calculate the total cost of the purchase
     total_cost = price * quantity
-    # Add the transaction to the history
+    # Adding the transaction to the history
     transactions.append((item, price, quantity, total_cost))
 
 def get_transaction_history():
@@ -65,7 +67,7 @@ while money > 0:
         except ValueError:
             print("Sorry, that is not a valid option. Please enter a number between 1 and 3.")
 
-    # Check which burger the user has chosen
+    # To Check which burger the user has chosen
     if burger_choice == 0:
         break
     elif burger_choice == 1:
@@ -78,7 +80,7 @@ while money > 0:
         burger_type = "Vegetarian Burger"
         burger_price = Vegetarian_Burger
 
-    # Check if the user has enough money for the chosen burger
+    # To Check if the user has enough money for the chosen burger
     if money < burger_price:
         print(f"Insufficient funds to purchase {burger_type}")
     else:
@@ -91,13 +93,13 @@ while money > 0:
                 quantity = int(input(f"How many {burger_type}s would you like to purchase? "))
                 total_cost = burger_price * quantity
 
-                # Check if the total cost of the purchase is greater than the user's balance
+                # Checking if the total cost of the purchase is greater than the user's balance
                 if total_cost > money:
                     print("You do not have enough money to make this purchase. Please enter a lower quantity.")
                 else:
-                    # Calculate the total cost of the purchase
+                    # Calculating the total cost of the purchase
                     money = money - total_cost
-                    # Add the purchase to the transaction history
+                    # Adding the purchase to the transaction history
                     vend(burger_type, burger_price, quantity, total_cost)
                     print(
                         f"Thank you for your purchase! Your remaining balance is: {money} Dhs"
@@ -202,14 +204,14 @@ while money > 0:
                 print("Invalid input. Please enter a number.")
 
     time.sleep(1)
-    # Ask the user if they want to make an additional selection
+    # Asking the user if they want to make an additional selection
     additional_selection = input('Would you like to make another purchase? (y/n): ')
     if additional_selection.lower() == 'no' or additional_selection.lower() == 'n':
         break
     else:
       continue
 
-# Display the transaction history and total
+# Displaying the transaction history and total
 print("\n-----\033[92mTransaction History\033[0m-----")
 history = get_transaction_history()
 total = 0
@@ -221,3 +223,5 @@ for item, price, quantity, total_cost in history:
 print(f"\nTotal: {total} Dhs ")
 print(f"\nRemaining balance: {money} Dhs")
 print("\nEnjoy your meal at Burger Shack!")
+
+# end marker
