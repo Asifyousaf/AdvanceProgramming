@@ -1,8 +1,10 @@
+# Chapter 5 Exercise 4 - Working with JSON file
+
 # Import the json module to work with JSON data
 import json
 
 # Specify the file path
-file_path = 'StudentJson.json'
+file_path = 'StudentJson1.json'
 
 # Step 1: Ask the user to enter student details and write to JSON file
 

@@ -1,26 +1,26 @@
-# Import the pyplot module from the matplotlib library for graph
-import matplotlib.pyplot as plt
+from tkinter import *
 
-# Line 1: From (1, 2) to (6, 8)
-x1 = [1, 6]
-y1 = [2, 8]
+# Create a Tkinter window
+root = Tk()
+root.title('Line Graph Exercise')
 
-# Line 2: Dotted line from (1, 3) to (2, 8) to (6, 1) to (8, 10)
-x2 = [1, 2, 6, 8]
-y2 = [3, 8, 1, 10]
+# Create a Canvas widget
+canvas = Canvas(root, width=400, height=300)
+canvas.pack()
 
-# Plotting the lines
-plt.plot(x1, y1, label='Line 1')
-plt.plot(x2, y2, 'r--', label='Line 2')  # 'r--' specifies a red dashed line
+# Draw Line 1: From (50, 50) to (300, 250)
+canvas.create_line(50, 50, 300, 250, fill='blue', width=2, tags='line1')
 
-# Adding labels and title
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.title('Line Graph Exercise')
+# Draw Line 2: Dotted line from (50, 75) to (100, 250) to (300, 25) to (400, 300)
+canvas.create_line(50, 75, 100, 250, 300, 25, 400, 300, fill='red', width=2, dash=(4, 4), tags='line2')
+
+# Adding labels
+canvas.create_text(200, 280, text='X-axis', font=('Helvetica', 10))
+canvas.create_text(30, 150, text='Y-axis', font=('Helvetica', 10), angle=90)
 
 # Adding legend
-plt.legend()
+canvas.create_text(350, 50, text='Line 1', font=('Helvetica', 10), fill='blue')
+canvas.create_text(350, 75, text='Line 2', font=('Helvetica', 10), fill='red')
 
-# Display the plot
-plt.show()
-
+# Run the Tkinter event loop
+root.mainloop()

@@ -1,3 +1,5 @@
+# Chapter 2 Further Exercise I - Count Characters
+
 # using the tkinter library
 from tkinter import *
 

@@ -1,20 +1,55 @@
-# Import the pyplot module from the matplotlib library for graph
-import matplotlib.pyplot as plt
+# Chapter 5 Further Exercise I - Stack Bar Graph
 
-# Define data from the table
-categories = ['Game', 'Commercials', "Wont'watch"]
+import tkinter as tk
+
+# Create a Tkinter window
+root = tk.Tk()
+root.title('Super Bowl Watching Preferences by Gender')
+
+# Create a Canvas widget
+canvas = tk.Canvas(root, width=400, height=300)
+canvas.pack()
+
+# Data from the table
+categories = ['Game', 'Commercials', "Won't Watch"]
 male_responses = [279, 81, 132]
 female_responses = [200, 156, 160]
 
-# Plotting the bar chart
-plt.bar(categories, male_responses, label='Male')  # Plotting bars for male responses
-plt.bar(categories, female_responses, bottom=male_responses, label='Female')  # Plotting bars for female responses on top of male responses
+# Calculate the maximum number of responses for scaling
+max_responses = max(max(male_responses), max(female_responses))
 
-# Adding labels, title, and legend
-plt.xlabel('Response Categories')  # Label for the x-axis
-plt.ylabel('Number of Responses')  # Label for the y-axis
-plt.title('Super Bowl Watching Preferences by Gender')  # Title of the plot
-plt.legend()  # Displaying legend to differentiate between male and female responses
+# Set the bar width and gap between bars
+bar_width, bar_gap = 30, 20
 
-# Display the bar chart
-plt.show()
+# Draw stacked bars for male and female responses
+for i, category in enumerate(categories):
+    x = 50 + i * (bar_width + bar_gap)
+    y_bottom, height = 250, 150
+
+    y_top_male = y_bottom - (male_responses[i] / max_responses) * height
+    y_top_female = y_bottom - ((male_responses[i] + female_responses[i]) / max_responses) * height
+
+    # Draw male response bar
+    canvas.create_rectangle(x, y_bottom, x + bar_width, y_top_male, fill='blue', outline='black')
+    canvas.create_text(x + bar_width / 2, y_bottom + 10, text=str(male_responses[i]))
+
+    # Draw female response bar on top of male response bar
+    canvas.create_rectangle(x, y_top_male, x + bar_width, y_top_female, fill='pink', outline='black')
+    canvas.create_text(x + bar_width / 2, y_top_female + 10, text=str(female_responses[i]))
+
+# Adding labels and title
+labels = ['Response Categories', 'Number of Responses', 'Super Bowl Watching Preferences by Gender']
+positions = [(200, 280), (30, 150), (200, 20)]
+
+for label, (x, y) in zip(labels, positions):
+    canvas.create_text(x, y, text=label, font=('Helvetica', 10), angle=90 if label == 'Number of Responses' else 0)
+
+# Adding legend
+legend_labels = ['Male', 'Female']
+legend_colors = ['blue', 'pink']
+
+for label, color, x in zip(legend_labels, legend_colors, [300, 350]):
+    canvas.create_text(x, 180, text=label, font=('Helvetica', 10), fill=color)
+
+# Run the Tkinter event loop
+root.mainloop()

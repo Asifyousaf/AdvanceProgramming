@@ -1,3 +1,5 @@
+# Chapter 3  Bonus Assessment Exercise - Burger Shack Vendor 
+
 # using the time module
 import time
 

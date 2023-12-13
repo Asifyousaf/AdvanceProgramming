@@ -1,3 +1,5 @@
+# Chapter 3 Exercise 1 - Greeting App
+
 # using the tkinter library
 from tkinter import *
 
@@ -22,7 +24,7 @@ root = Tk()
 root.title("Greeting App")
 
 # Setting the window size 
-root.geometry("300x200")
+root.geometry("310x250")
 
 # Disabling window resizable
 root.resizable(0, 0)
@@ -35,11 +37,11 @@ input_frame = Frame(root, bg='white', width=300, height=150)
 input_frame.pack(padx=10, pady=10, fill="both", expand=True)
 
 # Title Label
-title_label = Label(input_frame, text="Greeting App", font=('Helvetica', 18, 'bold'), fg='blue', bg='white') 
+title_label = Label(input_frame, text="Greeting App", font=('Helvetica', 18, 'bold'), fg='#22263d', bg='white') 
 title_label.grid(row=0, column=0, columnspan=2, pady=(10, 20))
 
 # Entry for user's name
-name_label = Label(input_frame, text="Enter your name:", bg='white', fg='black', font=('Helvetica', 12))
+name_label = Label(input_frame, text="Enter your name:", font=('Roboto', 12, 'bold'), bg='#FFFFFF', fg='#22263d')
 name_label.grid(row=1, column=0, padx=5, pady=5, sticky='e')
 
 # Displaying the entry field
@@ -47,7 +49,7 @@ name_entry = Entry(input_frame, bg='white', fg='black', font=('Helvetica', 12))
 name_entry.grid(row=1, column=1, padx=5, pady=5, sticky='w')
 
 # Dropdown menu for color selection using OptionMenu
-color_label = Label(input_frame, text="Select a color:", bg='white', fg='black', font=('Helvetica', 12))
+color_label = Label(input_frame, text="Select a color:", font=('Roboto', 12, 'bold'), bg='#FFFFFF', fg='#22263d')
 color_label.grid(row=2, column=0, padx=5, pady=5, sticky='e')
 
 # Setting the color list 
@@ -59,7 +61,7 @@ color_dropdown = OptionMenu(input_frame, color_var, *colors)
 color_dropdown.grid(row=2, column=1, padx=5, pady=5, sticky='w')
 
 # Button to update greeting
-update_button = Button(input_frame, text="Update Greeting", command=update_greeting, bg='white', fg='black', font=('Helvetica', 12))
+update_button = Button(input_frame, text="Update Greeting", command=update_greeting, bg='#22263d', fg='white', font=('Helvetica', 12, 'bold'))
 update_button.grid(row=3, column=0, columnspan=2, padx=10, sticky='n')
 
 # DisplayFrame
@@ -67,7 +69,7 @@ display_frame = Frame(root, bg='white', width=300, height=150)
 display_frame.pack(padx=10, pady=10, fill="both", expand=True)
 
 # Label to display personalized greeting
-display_label = Label(display_frame, text="", font=('Helvetica', 16), bg='Grey', fg='black')  
+display_label = Label(display_frame, text="", font=('Helvetica', 16,'bold'), bg='white', fg='black')  
 display_label.pack(padx=5, pady=5)
 
 # Starting the Tkinter event loop

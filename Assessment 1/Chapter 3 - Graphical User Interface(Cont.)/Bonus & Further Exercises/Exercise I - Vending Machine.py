@@ -1,3 +1,5 @@
+# Chapter 3 Exercise i - Vending machine
+
 # using the tkinter libraryand messagebox
 from tkinter import *
 from tkinter import messagebox

@@ -1,3 +1,5 @@
+# Chapter 2 Further Exercise II - Capitalize Letters
+
 # using the tkinter library
 from tkinter import *
 
@@ -33,7 +35,8 @@ entry = Entry(root, font=('Roboto', 12), bg='#B0C4DE', fg='#000000')
 entry.grid(row=1, column=1, pady=10, padx=10)
 
 # Button to capitalize text
-capitalize_button = Button(root, text="Capitalize Text", command=capitalize_text, font=('Roboto', 12, 'bold'), bg='#22263d', fg='#FFFFFF')
+capitalize_button = Button(root, text="Capitalize Text", command=capitalize_text, font=('Roboto', 12, 'bold'), 
+                           bg='#22263d', fg='#FFFFFF')
 capitalize_button.grid(row=2, column=0, columnspan=2, pady=10)
 
 # Result

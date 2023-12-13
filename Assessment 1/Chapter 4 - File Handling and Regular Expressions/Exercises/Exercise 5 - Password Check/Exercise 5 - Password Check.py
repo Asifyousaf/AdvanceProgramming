@@ -1,3 +1,5 @@
+# Chapter 4 Exercise 5 - Password checker
+
 # Using the tkinter library
 from tkinter import *
 
@@ -57,7 +59,7 @@ attempts_var = StringVar()
 attempts_var.set("5")
 
 # Label and Entry for password input
-label_password = Label(root, text="Enter Password:")
+label_password = Label(root, text="Enter Password:",fg='#22263d',font=('Roboto', 18, 'bold'))
 label_password.pack(pady=10)
 
 # to show the password as *
@@ -65,7 +67,7 @@ entry_password = Entry(root, show="*")
 entry_password.pack(pady=10)
 
 # Button to submit
-submit_button = Button(root, text="Check Password", command=submit_form)
+submit_button = Button(root, text="Check Password", command=submit_form,font=('Roboto', 10, 'bold'))
 submit_button.pack(pady=10)
 
 # Label to display the result and attempts left

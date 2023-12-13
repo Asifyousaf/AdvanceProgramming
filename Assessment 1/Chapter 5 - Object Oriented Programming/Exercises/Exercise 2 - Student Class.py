@@ -1,3 +1,5 @@
+# Chapter 5 Exercise 2 - Student Class
+
 # using the tkinter library and messagebox
 from tkinter import *
 from tkinter import messagebox
@@ -19,7 +21,7 @@ class Student:
     # Method to display student information
     def display(student):
         # Return a formatted string with student name and average grade
-        return f"Student Name: {student.name}\nAverage Grade: {student.calc_grade():.2f}"
+        return f"Student Name: {student.name}\nAverage Grade: {student.calc_grade():}"
 
 # Function to create a student object and display information
 def create_student_object():

@@ -1,3 +1,5 @@
+# Chapter 2 Bonus Exercise A - Temperature Converter
+
 # using the tkinter library
 from tkinter import *
 

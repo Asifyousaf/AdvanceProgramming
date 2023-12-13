@@ -1,3 +1,5 @@
+# Chapter 4 Exercise 2 - CountString
+
 # using the tkinter library
 from tkinter import *
 
@@ -8,7 +10,7 @@ def count_string_occurrences(search_string, file_path):
     # file_path (str): The path to the file containing the text.
     try:
         # to open and read the specified file
-        with open('sentences.txt', 'r') as file:
+        with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 2 - CountString/sentences.txt', 'r') as file:
             content = file.read()
             
             # Counting occurrences of the search string

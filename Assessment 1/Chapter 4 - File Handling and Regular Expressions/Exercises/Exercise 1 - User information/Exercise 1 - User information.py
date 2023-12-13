@@ -1,10 +1,12 @@
+# Chapter 4 Exercise 1 - User information
+
 # using the tkinter library
 from tkinter import *
 
 # Making fucntion to read & write data
 def save_to_file(name, age, hometown):
     # Saving user information to the bio.txt file
-    with open('bio.txt', 'w') as file:
+    with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 1 - User information/bio.txt', 'w') as file:
         file.write(f"Name: {name}\n")
         file.write(f"Age: {age}\n")
         file.write(f"Hometown: {hometown}\n")
@@ -12,7 +14,7 @@ def save_to_file(name, age, hometown):
 def read_from_file():
     try:
         # Reading user information from the bio.txt file
-        with open('bio.txt', 'r') as file:
+        with open('Chapter 4 - File Handling and Regular Expressions/Exercises/Exercise 1 - User information/bio.txt', 'r') as file:
             content = file.read()
             return content
     except FileNotFoundError:
@@ -37,23 +39,23 @@ root = Tk()
 root.title("User Information root")
 
 # Creating and place the form elements
-label_name = Label(root, text="Name:")   # Name
+label_name = Label(root, text="Name:",font=('Roboto', 12, 'bold'))   # Name
 label_name.grid(row=0, column=0, padx=10, pady=10, sticky=E)
 entry_name = Entry(root)
 entry_name.grid(row=0, column=1, padx=10, pady=10)
 
-label_age = Label(root, text="Age:")   # Age
+label_age = Label(root, text="Age:",font=('Roboto', 12, 'bold'))   # Age
 label_age.grid(row=1, column=0, padx=10, pady=10, sticky=E)
 entry_age = Entry(root)
 entry_age.grid(row=1, column=1, padx=10, pady=10)
 
-label_hometown = Label(root, text="Hometown:")  # Hometown
+label_hometown = Label(root, text="Hometown:",font=('Roboto', 12, 'bold'))  # Hometown
 label_hometown.grid(row=2, column=0, padx=10, pady=10, sticky=E)
 entry_hometown = Entry(root)
 entry_hometown.grid(row=2, column=1, padx=10, pady=10)
 
 # Button to submit the form
-submit_button = Button(root, text="Submit", command=submit_form,bg='#22263d',fg='white') # Submit button
+submit_button = Button(root, text="Submit", command=submit_form,bg='#22263d',fg='white',font=('Roboto', 12, 'bold')) # Submit button
 submit_button.grid(row=3, column=0, columnspan=2, pady=10)
 
 # Label to display the result

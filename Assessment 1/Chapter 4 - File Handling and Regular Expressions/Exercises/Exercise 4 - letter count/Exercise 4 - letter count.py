@@ -1,3 +1,5 @@
+# Chapter 4 Exercise 3 - letter count
+
 # Importing the tkinter library for GUI
 from tkinter import *
 
@@ -5,7 +7,7 @@ from tkinter import *
 def count_occurrences(character, file_path):
     try:
         # Opening and reading the specified file
-        with open('sentences.txt', 'r') as file:
+        with open('Chapter 4 - File Handling and Regular Expressions\Exercises\Exercise 4 - letter count\sentences.txt', 'r') as file:
             content = file.read()
             # Counting occurrences of the character (case-insensitive)
             count = content.lower().count(character.lower())
@@ -24,6 +26,7 @@ def submit_form():
 # Creating the main window
 root = Tk()
 
+
 # Setting the window size 
 root.title("Letter Occurrences Counter")
 
@@ -31,7 +34,7 @@ root.title("Letter Occurrences Counter")
 root.geometry("400x200")
 
 # Label and Entry for user input
-label_prompt = Label(root, text="Enter a character:")
+label_prompt = Label(root, text="Enter a character:",font=('Roboto', 12, 'bold'))
 label_prompt.pack(pady=10)
 
 entry_character = Entry(root)

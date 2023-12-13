@@ -13,7 +13,7 @@ def draw_shape():
     elif shape == "Rectangle":
         canvas.create_rectangle(50, 50, 250, 350, outline="black")  
     elif shape == "Square":
-        canvas.create_rectangle(50, 50, 150, 50, outline="black")
+        canvas.create_rectangle(50, 50, 350, 350, outline="black")
     elif shape == "Triangle":
         canvas.create_polygon(50, 350, 200, 50, 350, 350, outline="black")
 
