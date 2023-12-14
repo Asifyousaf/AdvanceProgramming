@@ -1,6 +1,5 @@
 # Chapter 5 Exercise 1 - Basic Math
 
-
 # Using math library to do simple function
 import math
 

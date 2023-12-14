@@ -5,6 +5,7 @@ from tkinter import *
 
 def analyze_petrol_data():
     try:
+        # The path has been specified on vscode
         file_path = 'Chapter 4 - File Handling and Regular Expressions\Bonus & Further Exercises\Exercise A - Petrol Price\petrolPrice.txt'
         total_liters = 0
         total_cost = 0

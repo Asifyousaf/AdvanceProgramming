@@ -1,6 +1,7 @@
 # Chapter 5 Further Exercise I - Stack Bar Graph
 
 # Import the pyplot module from the matplotlib library for graph
+# PLease install the pip install matplotlib
 import matplotlib.pyplot as plt
 
 # Define data from the table
