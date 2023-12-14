@@ -29,10 +29,6 @@ root.geometry("310x250")
 # Disabling window resizable
 root.resizable(0, 0)
 
-# Adding background image
-image_path = PhotoImage(file="Chapter 3 - Graphical User Interface(Cont.)\images\Greeting-bg.png")
-bg = Label(root, image=image_path)
-bg.place(relheight=1, relwidth=1)
 
 # InputFrame
 input_frame = Frame(root, bg='white', width=300, height=150)  
