@@ -16,6 +16,7 @@ Chapter 5 - Object-Oriented Programming
 Chapter 6 - Python Standard Library Modules
 
 About
+
 I'm Asif, and these code examples were created as part of an assessment. Each chapter corresponds to a different topic in Python programming.
 
 Feel free to review the code for your reference.
