@@ -1,3 +1,5 @@
+# Chapter 3 Exercise i - Vending machine
+
 # using the tkinter library,random and messagebox
 from tkinter import *
 import random

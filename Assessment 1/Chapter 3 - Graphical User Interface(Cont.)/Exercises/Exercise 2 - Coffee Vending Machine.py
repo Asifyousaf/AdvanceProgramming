@@ -14,7 +14,7 @@ root.title("Coffee Vending Machine")
 root.geometry("350x340")
 
 # Adding background image
-image_path = PhotoImage(file="Chapter 3 - Graphical User Interface(Cont.)\Exercises\Coffee-bg.png")
+image_path = PhotoImage(file="Chapter 3 - Graphical User Interface(Cont.)\Exercises\Coffee-bg.png")# The Path has been written for vscode as pycharm cannot read it
 bg = Label(root, image=image_path)
 bg.place(relheight=1, relwidth=1)
 

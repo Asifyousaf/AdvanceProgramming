@@ -89,4 +89,4 @@ purchase_button.pack(pady=10)
 # Starting the Tkinter event loop
 root.mainloop()
 
-#End marker
+# End marker
