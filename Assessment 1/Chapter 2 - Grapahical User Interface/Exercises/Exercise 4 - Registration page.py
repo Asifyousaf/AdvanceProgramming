@@ -23,7 +23,7 @@ content_frame = Frame(root, width=480, height=600, bg="#f2f2f2")  # Adjusted wid
 content_frame.grid(padx=10, pady=10)
 
 # Creating a label for the image (banner)
-banner = PhotoImage(file='Chapter 2 - Grapahical User Interface/Images/RAK.png', width=480, height=120)  # Adjusted width and height
+banner = PhotoImage(file='Chapter 2 - Grapahical User Interface\Exercises\RAK.png', width=480, height=120)  # Adjusted width and height
 banner_lbl = Label(content_frame, image=banner, bg="white")
 banner_lbl.grid(row=0, column=0, columnspan=2)
 

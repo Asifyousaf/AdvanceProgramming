@@ -14,7 +14,7 @@ root.title("Coffee Vending Machine")
 root.geometry("350x340")
 
 # Adding background image
-image_path = PhotoImage(file="Chapter 3 - Graphical User Interface(Cont.)\images\Coffee-bg.png")
+image_path = PhotoImage(file="Chapter 3 - Graphical User Interface(Cont.)\Exercises\Coffee-bg.png")
 bg = Label(root, image=image_path)
 bg.place(relheight=1, relwidth=1)
 
@@ -37,8 +37,7 @@ def process_order():
     # Checking if the amount paid is sufficient
     if amount_paid >= cost:
         change = amount_paid - cost # substracting the cost
-        order_message = f"You ordered a {coffee_type} coffee with {sugar} sugar and {milk} milk. The cost is $
-        {cost:.2f} and your change is ${change:.2f}."
+        order_message = f"You ordered a {coffee_type} coffee with {sugar} sugar and {milk} milk. The cost is ${cost:.2f} and your change is ${change:.2f}."
         messagebox.showinfo("Order Received", order_message)
     else:
         messagebox.showerror("Insufficient Funds", "You have not paid enough for your order.")
@@ -83,8 +82,7 @@ amount_paid_entry = Entry(root, font=("Roboto", 10, 'bold'), bg="#3d2800", fg="w
 amount_paid_entry.grid(row=4, column=1, pady=5)
 
 # Creating a button to process the order with some style
-order_button = Button(root, text="Order", command=process_order, bg="#5d432c", fg="white", 
-                      font=("Roboto", 14, 'bold'), padx=10, pady=5)
+order_button = Button(root, text="Order", command=process_order, bg="#5d432c", fg="white", font=("Roboto", 14, 'bold'), padx=10, pady=5)
 order_button.grid(row=5, column=1, columnspan=2, pady=20)
 
 # Starting the Tkinter event loop
