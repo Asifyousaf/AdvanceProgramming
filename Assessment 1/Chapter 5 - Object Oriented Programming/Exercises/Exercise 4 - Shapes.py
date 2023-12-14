@@ -1,3 +1,5 @@
+# Chapter 5 Exercise 4 - Shapes
+
 # using the tkinter library,messagebox and math
 from tkinter import *
 from tkinter import messagebox
@@ -81,10 +83,10 @@ root.title("Shape Area Calculator")
 root.geometry("400x300")
 
 # Creating a Frame for the Shape tab with background color and padding
-shape_tab = Frame(root, bg="#E6E6FA", pady=20)
+shape_tab = Frame(root, bg="#22263d", pady=20)
 
 # Label for selecting the shape with specified font and background color
-label_shape = Label(shape_tab, text='Select Shape:', font=("Helvetica", 12), bg="#E6E6FA")
+label_shape = Label(shape_tab, text='Select Shape:', font=('Roboto', 12, 'bold'), bg="#22263d",fg='white')
 label_shape.pack()
 
 # Options for the shapes presented in a drop-down menu
@@ -95,14 +97,14 @@ shape_option = OptionMenu(shape_tab, shape_var, *shapes)
 shape_option.pack(pady=10)
 
 # Labels and Entry widgets for inputting side values
-side1_label = Label(shape_tab, text="Enter Side 1:", font=("Helvetica", 12), bg="#E6E6FA")
+side1_label = Label(shape_tab, text="Enter Side 1:", font=('Roboto', 12, 'bold'), bg="#22263d",fg='white')
 side1_label.pack(pady=5)
-side1_entry = Entry(shape_tab, font=("Helvetica", 12))
+side1_entry = Entry(shape_tab, font=('Roboto', 12, 'bold'))
 side1_entry.pack(pady=5)
 
-side2_label = Label(shape_tab, text="Enter Side 2:", font=("Helvetica", 12), bg="#E6E6FA")
+side2_label = Label(shape_tab, text="Enter Side 2:", font=('Roboto', 12, 'bold'), bg="#22263d",fg='white')
 side2_label.pack(pady=5)
-side2_entry = Entry(shape_tab, font=("Helvetica", 12))
+side2_entry = Entry(shape_tab, font=('Roboto', 12, 'bold'))
 side2_entry.pack(pady=5)
 
 # Button to trigger the area calculation with specified text, command, font, and color

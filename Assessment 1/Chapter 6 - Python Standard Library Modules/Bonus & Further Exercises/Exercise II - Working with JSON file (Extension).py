@@ -1,3 +1,5 @@
+# Chapter 5 Further Exercise II - Working with JSON file (Extension)
+
 # Import the json module to work with JSON data
 import json
 
@@ -65,3 +67,5 @@ with open(file_path, 'r') as json_file:
         print(f"\tStudent: {student}")
         for key, value in details.items():
             print(f"\t\t{key}: {value}")
+
+# End marker

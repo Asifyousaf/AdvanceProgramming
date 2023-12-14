@@ -1,3 +1,5 @@
+# Chapter 5 Bonus Exercise A - Playing around in class
+
 # Defining a class called Animal
 class Animal:
     def set_data(animal, animal_type, name, colour, age, weight, noise):

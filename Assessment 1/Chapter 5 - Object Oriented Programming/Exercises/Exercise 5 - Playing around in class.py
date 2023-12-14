@@ -1,3 +1,5 @@
+# Chapter 5 Exercise 5 - Playing around in class
+
 # using the tkinter library and messagebox
 from tkinter import *
 from tkinter import messagebox
@@ -54,36 +56,39 @@ root = Tk()
 # Setting the title for the window
 root.title("Animal Class GUI")
 
+# Setting the background color
+root.config(bg="#22263d")
+
 # Setting the window size
 root.geometry("400x500")
 
 # Labels and Entry Boxes for input
-type_label = Label(root, text="Enter Type:") # For Type:
+type_label = Label(root, text="Enter Type:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For Type:
 type_label.pack(pady=5)
 type_entry = Entry(root, font=("Helvetica", 12))
 type_entry.pack(pady=5)
 
-name_label = Label(root, text="Enter Name:") # For  Name:
+name_label = Label(root, text="Enter Name:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For  Name:
 name_label.pack(pady=5)
 name_entry = Entry(root, font=("Helvetica", 12))
 name_entry.pack(pady=5)
 
-colour_label = Label(root, text="Enter Colour:") # For Colour:
+colour_label = Label(root, text="Enter Colour:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For Colour:
 colour_label.pack(pady=5)
 colour_entry = Entry(root, font=("Helvetica", 12))
 colour_entry.pack(pady=5)
 
-age_label = Label(root, text="Enter Age:") # For Age:
+age_label = Label(root, text="Enter Age:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For Age:
 age_label.pack(pady=5)
 age_entry = Entry(root, font=("Helvetica", 12))
 age_entry.pack(pady=5)
 
-weight_label = Label(root, text="Enter Weight:") # For Weight:
+weight_label = Label(root, text="Enter Weight:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For Weight:
 weight_label.pack(pady=5)
 weight_entry = Entry(root, font=("Helvetica", 12))
 weight_entry.pack(pady=5)
 
-noise_label = Label(root, text="Enter Noise:") # For Noise:
+noise_label = Label(root, text="Enter Noise:",font=('Roboto', 12, 'bold'),bg="#22263d",fg='white') # For Noise:
 noise_label.pack(pady=5)
 noise_entry = Entry(root, font=("Helvetica", 12))
 noise_entry.pack(pady=5)

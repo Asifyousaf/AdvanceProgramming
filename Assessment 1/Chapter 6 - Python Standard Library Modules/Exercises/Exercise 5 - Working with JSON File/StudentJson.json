@@ -2,8 +2,6 @@
     "StudentDetails": {
         "Name": "Asif",
         "ID": 2022469,
-        "course": "LL C5",
-        "Group": "A",
-        "Year": 2
+        "course": "CC L5"
     }
 }

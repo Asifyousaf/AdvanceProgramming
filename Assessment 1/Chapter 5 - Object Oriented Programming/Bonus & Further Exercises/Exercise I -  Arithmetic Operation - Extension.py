@@ -1,4 +1,4 @@
-# Chapter 4 Further Exercise i - User information
+# Chapter 4 Further Exercise i - Arithmetic Operation - Extension
 
 # Importing modules from the tkinter library
 from tkinter import *
@@ -66,16 +66,17 @@ root.title("Operations Calculator")
 # Setting the window size
 root.geometry("400x300")
 
-# Widgets for Operations tab
-operations_tab = Frame(root, bg="#E6E6FA", pady=20)
+# Widgets for Operations tab# Widgets for Arithmetic Operations tab
+operations_tab = Frame(root, bg="#22263d", pady=20)
 
 # Label for selecting the operation
-operation_label = Label(operations_tab, text='Select Operation:', font=("Helvetica", 12), bg="#E6E6FA")
+operation_label = Label(operations_tab, text='Select Operation:', font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 operation_label.pack()
 
 # Options for the operations presented in a drop-down menu
 arithmetic_operations = ["Addition", "Subtraction", "Multiplication", "Division", "Exponentiation"]
-relational_operations = ["Equal", "Not Equal", "Greater Than", "Less Than", "Greater Than or Equal To", "Less Than or Equal To"]
+relational_operations = ["Equal", "Not Equal", "Greater Than", "Less Than", "Greater Than or Equal To", 
+                         "Less Than or Equal To"]
 all_operations = arithmetic_operations + relational_operations
 
 operation_var = StringVar()
@@ -84,12 +85,12 @@ operation_option = OptionMenu(operations_tab, operation_var, *all_operations)
 operation_option.pack(pady=10)
 
 # Labels and Entry widgets for inputting numeric values
-value1_label = Label(operations_tab, text="Enter Value 1:", font=("Helvetica", 12), bg="#E6E6FA")
+value1_label = Label(operations_tab, text="Enter Value 1:", font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 value1_label.pack(pady=5)
 value1_entry = Entry(operations_tab, font=("Helvetica", 12))
 value1_entry.pack(pady=5)
 
-value2_label = Label(operations_tab, text="Enter Value 2:", font=("Helvetica", 12), bg="#E6E6FA")
+value2_label = Label(operations_tab, text="Enter Value 2:", font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 value2_label.pack(pady=5)
 value2_entry = Entry(operations_tab, font=("Helvetica", 12))
 value2_entry.pack(pady=5)

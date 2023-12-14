@@ -1,3 +1,5 @@
+# Chapter 5 Exercise 6 - Arthmetic Operation
+
 # Importing modules from the tkinter library
 from tkinter import *
 from tkinter import messagebox
@@ -48,10 +50,11 @@ root.title("Arithmetic Operations Calculator")
 root.geometry("400x300")
 
 # Widgets for Arithmetic Operations tab
-arithmetic_tab = Frame(root, bg="#E6E6FA", pady=20)
+arithmetic_tab = Frame(root, bg="#22263d", pady=20)
 
 # Label for selecting the arithmetic operation
-operation_label = Label(arithmetic_tab, text='Select Operation:', font=("Helvetica", 12), bg="#E6E6FA")
+operation_label = Label(arithmetic_tab, text='Select Operation:', 
+                        font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 operation_label.pack()
 
 # Options for the arithmetic operations presented in a drop-down menu
@@ -62,18 +65,21 @@ operation_option = OptionMenu(arithmetic_tab, operation_var, *operations)
 operation_option.pack(pady=10)
 
 # Labels and Entry widgets for inputting numeric values
-value1_label = Label(arithmetic_tab, text="Enter Value 1:", font=("Helvetica", 12), bg="#E6E6FA")
+value1_label = Label(arithmetic_tab, text="Enter Value 1:", 
+                     font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 value1_label.pack(pady=5)
 value1_entry = Entry(arithmetic_tab, font=("Helvetica", 12))
 value1_entry.pack(pady=5)
 
-value2_label = Label(arithmetic_tab, text="Enter Value 2:", font=("Helvetica", 12), bg="#E6E6FA")
+value2_label = Label(arithmetic_tab, text="Enter Value 2:", 
+                     font=('Roboto', 12, 'bold'),bg="#22263d",fg='white')
 value2_label.pack(pady=5)
 value2_entry = Entry(arithmetic_tab, font=("Helvetica", 12))
 value2_entry.pack(pady=5)
 
 # Button to trigger the calculation with specified text, command, font, and color
-calculate_button = Button(arithmetic_tab, text='Calculate', command=perform_calculation, font=("Helvetica", 12), bg="#4CAF50", fg="white")
+calculate_button = Button(arithmetic_tab, text='Calculate', 
+                command=perform_calculation, font=("Helvetica", 12,'bold'), bg="#4CAF50", fg="white")
 calculate_button.pack(pady=10)
 
 # Packing the Arithmetic Operations tab
